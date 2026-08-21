@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Vincent van Gogh</title>
+    <!-- Google Fonts untuk gaya tipografi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* --- STYLES HEADER (Gaya sesuai gambar) --- */
+        header {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f5b027;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f5b027;
+        }
+
+        .hero-title-container {
+            position: relative;
+            margin: auto 0;
+            user-select: none;
+        }
+
+        .sub-header-top {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: -20px;
+        }
+
+        .main-title-bg {
+            font-size: clamp(4rem, 15vw, 10rem);
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 4px;
+            line-height: 1;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .main-title-overlay {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-4deg);
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 10vw, 7rem);
+            color: #f5b027;
+            width: 100%;
+            pointer-events: none;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+        }
+
+        .sub-header-bottom {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-top: 10px;
+        }
+
+        /* --- STYLES KONTEN UNTUK SEMUA SEKSI --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid #222;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: #f5b027;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #f5b027;
+            margin-top: 8px;
+        }
+
+        /* Seksi Biografi & Pendidikan */
+        .bio-content, .edu-content {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #f5b027;
+        }
+
+        /* Seksi Perjalanan Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #333;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #f5b027;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: #f5b027;
+            margin-bottom: 5px;
+        }
+
+        /* Seksi Karya */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .card-info p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* Seksi Penutup / Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #0a0a0a;
+        }
+
+        blockquote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        footer p.copyright {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / HERO SECTION -->
+    <header>
+        <nav>
+            <div class="logo">Van Gogh</div>
+            <ul class="nav-links">
+                <li><a href="#biografi">Biografi</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#perjalanan">Perjalanan</a></li>
+                <li><a href="#karya">Karya</a></li>
+                <li><a href="#penutup">Penutup</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-title-container">
+            <p class="sub-header-top">Post-Impressionist Artist</p>
+            <h1 class="main-title-bg">PORTFOLIO</h1>
+            <div class="main-title-overlay">Vincent van Gogh</div>
+        </div>
+
+        <p class="sub-header-bottom">1853 – 1890 | Masterpieces & Legacy</p>
+    </header>
+
+    <!-- 1. BIOGRAFI TOKOH -->
+    <section id="biografi">
+        <h2 class="section-title">1. Biografi Tokoh</h2>
+        <div class="bio-content">
+            <p><strong>Vincent Willem van Gogh</strong> (30 Maret 1853 – 29 Juli 1890) adalah seorang pelukis Pasca-Impresionis asal Belanda yang menjadi salah satu tokoh paling terkenal dan berpengaruh dalam sejarah seni Barat.</p>
+            <br>
+            <p>Meskipun karyanya kurang dihargai semasa hidupnya dan ia berjuang melawan penyakit mental serta kemiskinan, kini karya-karyanya diakui secara global karena warna-warnanya yang berani, kuasannya yang dramatis, dan ekspresi emosionalnya yang mendalam. Sepanjang kariernya yang berlangsung hanya sekitar satu dekade, ia menghasilkan lebih dari 2.100 karya seni.</p>
+        </div>
+    </section>
+
+    <!-- 2. PENDIDIKAN -->
+    <section id="pendidikan">
+        <h2 class="section-title">2. Pendidikan</h2>
+        <div class="edu-content">
+            <p>Vincent van Gogh sebagian besar belajar seni secara mandiri (otodidak), tetapi ia sempat menempuh beberapa pendidikan formal singkat:</p>
+            <br>
+            <ul>
+                <li><strong>Sekolah Formal Awal:</strong> Sempat bersekolah di Zevenbergen dan Tilburg, tetapi keluar pada usia 15 tahun.</li>
+                <li><strong>Pendalaman Teologi:</strong> Belajar teologi di Amsterdam (1877) untuk menjadi pengkhotbah, sebelum akhirnya memilih jalan seni sepenuhnya.</li>
+                <li><strong>Royal Academy of Fine Arts (Brussels):</strong> Mengikuti kursus singkat anatomi dan perspektif dasar pada tahun 1880.</li>
+                <li><strong>Academy of Fine Arts (Antwerp):</strong> Sempat belajar singkat pada tahun 1886, di mana ia banyak mempelajari karya-karya Rubens dan seni cetak Jepang (Ukiyo-e).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. PERJALANAN -->
+    <section id="perjalanan">
+        <h2 class="section-title">3. Perjalanan Hidup & Seni</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1869 – 1876</div>
+                <p>Bekerja di galeri seni Goupil & Cie di Den Haag dan London. Pengalaman ini membentuk pandangan awal serta apresiasinya terhadap karya seni klasik.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1880</div>
+                <p>Memutuskan secara mantap untuk menjadi seorang seniman dengan dukungan finansial dan emosional dari saudaranya, Theo van Gogh.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1886 – 1888 (Periode Paris)</div>
+                <p>Pindah ke Paris dan bertemu dengan para seniman impresionis seperti Monet, Degas, dan Gauguin. Warna lukisannya berubah dari gelap menjadi jauh lebih cerah.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1888 – 1889 (Periode Arles)</div>
+                <p>Pindah ke Arles di Prancis Selatan, mendirikan "Yellow House". Di tempat ini ia mencetak periode paling produktif sekaligus mengalami krisis kesehatan mental yang berat.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1890</div>
+                <p>Pindah ke Auvers-sur-Oise dan menghasilkan karya-karya terakhirnya sebelum wafat pada 29 Juli 1890 di usia 37 tahun.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KARYA KARYA -->
+    <section id="karya">
+        <h2 class="section-title">4. Karya-Karya Masterpiece</h2>
+        <div class="gallery">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600" alt="The Starry Night">
+                <div class="card-info">
+                    <h3>The Starry Night (1889)</h3>
+                    <p>Dibuat saat berada di rumah sakit jiwa Saint-Rémy-de-Provence. Salah satu lukisan paling ikonik dalam sejarah seni modern.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600" alt="Sunflowers">
+                <div class="card-info">
+                    <h3>Sunflowers (1888)</h3>
+                    <p>Seri lukisan bunga matahari yang dibuat di Arles untuk menyambut kedatangan rekannya, Paul Gauguin.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1582561821855-63e8a4a58b22?q=80&w=600" alt="Self-Portrait">
+                <div class="card-info">
+                    <h3>Potret Diri (Self-Portrait)</h3>
+                    <p>Van Gogh melukis lebih dari 30 potret dirinya sendiri sebagai sarana eksperimen teknik warna dan pencahayaan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PENUTUP -->
+    <footer id="penutup">
+        <blockquote>
+            "I dream my painting and I paint my dream."
+            <br><span style="font-size: 0.9rem; color: #f5b027;">— Vincent van Gogh</span>
+        </blockquote>
+        <p style="max-width: 600px; margin: 0 auto 30px auto; color: #aaa; font-size: 0.95rem;">
+            Terima kasih telah menjelajahi perjalanan seni Vincent van Gogh. Meskipun hidupnya singkat dan penuh tantangan, karya-karyanya terus menginspirasi jutaan orang di seluruh dunia hingga hari ini.
+        </p>
+        <p class="copyright">&copy; 2026 Portofolio Vincent van Gogh. Desain terinspirasi dari referensi header bertema modern gelap.</p>
+    </footer>
+
+</body>
+                  </html>
