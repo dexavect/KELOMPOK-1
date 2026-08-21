@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Illustrator & Graphic Designer</title>
+    <style>
+        /* Gaya CSS */
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f0f0f0; /* Warna latar belakang halaman */
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom dengan lebar yang sama */
+            grid-gap: 20px; /* Jarak antar item portfolio */
+            padding: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #008080; /* Warna latar belakang item portfolio */
+            color: white; /* Warna teks */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero {
+            grid-column: span 3; /* Membuat item hero mencakup 3 kolom */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-text {
+            font-size: 3em;
+            margin-right: 20px;
+        }
+
+        .hero-image {
+            width: 200px; /* Lebar gambar hero */
+            border-radius: 50%; /* Membuat gambar hero berbentuk lingkaran */
+        }
+
+        .content h1 {
+            font-size: 2em;
+        }
+
+        .projects {
+            grid-column: span 3; /* Membuat item projects mencakup 3 kolom */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom untuk proyek */
+            grid-gap: 20px;
+        }
+
+        .project-item img {
+            width: 100%; /* Lebar gambar proyek menyesuaikan dengan lebar kolom */
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio">
+        <div class="portfolio-item hero">
+            <div class="hero-text">
+                <h1>PORT</h1>
+                <p>ILLUSTRATOR</p>
+                <h1>FOLIO</h1>
+                <p>GRAPHIC DESIGNER</p>
+            </div>
+            <img src="path/to/hero-image.png" alt="Hero Image" class="hero-image">
+        </div>
+
+        <div class="portfolio-item introduction">
+            <h2>INTRODUCTION</h2>
+            <p>Halo, saya seorang ilustrator dan desainer grafis...</p>
+        </div>
+
+        <div class="portfolio-item content">
+            <h1>CONTENT</h1>
+            <p>01 ILLUSTRATION</p>
+            <p>02 TIPOGRAFI</p>
+            <p>03 BOOK COVER</p>
+            <p>04 DIGITAL IMAGING</p>
+            <p>05 PROJECT LAINNYA</p>
+        </div>
+
+        <div class="portfolio-item projects">
+            <div class="project-item">
+                <img src="path/to/project1.png" alt="Project 1">
+            </div>
+            <div class="project-item">
+                <img src="path/to/project2.png" alt="Project 2">
+            </div>
+            <div class="project-item">
+                <img src="path/to/project3.png" alt="Project 3">
+            </div>
+            <div class="project-item">
+                <img src="path/to/project4.png" alt="Project 4">
+            </div>
+        </div>
+
+        <!-- Tambahkan item portfolio lainnya di sini -->
+
+    </div>
+</body>
+</html>
